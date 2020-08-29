@@ -1,0 +1,1698 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="ste-def.xsl"?>
+<database rptdate="2009-01-27" rpttime="22:35" date="2007-09-24" time="12:00" name="PIC.STR">
+ <panel name="INFORM.DAT" listname="INFORM.DAT   System owner and application details" recsize="725" panelnum="1"><note><![CDATA[Licence information, base web address. This panel still need a lot of work and some things may not be all that necessary.<br /><br />But <b>check</b> it]]></note>
+
+  <field name="P1F1" panelnum="1" fieldnum="1" listname="LicencedTo" format="A60::M"   editorder="1" >
+
+</field>
+  <field name="P1F13" panelnum="1" fieldnum="13" listname="LicenceType" format="A1"   editorder="2" >
+
+</field>
+  <field name="P1F20" panelnum="1" fieldnum="20" listname="NumUsers" format="GZZZZ9"   editorder="3" >
+
+</field>
+  <field name="P1F21" panelnum="1" fieldnum="21" listname="Tolerance" format="GZ9"   editorder="4" >
+
+</field>
+  <field name="P1F14" panelnum="1" fieldnum="14" listname="LicencedFromDate" format="DYMD9999-99-99"   editorder="5" >
+
+</field>
+  <field name="P1F15" panelnum="1" fieldnum="15" listname="LicencedToDate" format="DYMD9999-99-99"   editorder="6" >
+
+</field>
+  <field name="P1F2" panelnum="1" fieldnum="2" listname="AuthorisedContact" format="A50"   editorder="7" >
+
+</field>
+  <field name="P1F17" panelnum="1" fieldnum="17" listname="AuthorityCode" format="A20"   editorder="8" >
+
+</field>
+  <field name="P1F3" panelnum="1" fieldnum="3" listname="Address1" format="A50"   editorder="9" >
+
+</field>
+  <field name="P1F4" panelnum="1" fieldnum="4" listname="Address2" format="A50"   editorder="10" >
+
+</field>
+  <field name="P1F5" panelnum="1" fieldnum="5" listname="City" format="A40"   editorder="11" >
+
+</field>
+  <field name="P1F6" panelnum="1" fieldnum="6" listname="State" format="A20"   editorder="12" >
+
+</field>
+  <field name="P1F7" panelnum="1" fieldnum="7" listname="Country" format="A40"   editorder="13" >
+
+</field>
+  <field name="P1F8" panelnum="1" fieldnum="8" listname="PostalCode" format="A10"   editorder="14" >
+
+</field>
+  <field name="P1F9" panelnum="1" fieldnum="9" listname="Phone1" format="A20"   editorder="15" >
+
+</field>
+  <field name="P1F10" panelnum="1" fieldnum="10" listname="Phone2" format="A20"   editorder="16" >
+
+</field>
+  <field name="P1F11" panelnum="1" fieldnum="11" listname="Fax" format="A20"   editorder="17" >
+
+</field>
+  <field name="P1F12" panelnum="1" fieldnum="12" listname="Email" format="A78"   editorder="18" >
+
+</field>
+  <field name="P1F19" panelnum="1" fieldnum="19" listname="WebAddress" format="A50"   editorder="19" >
+
+</field>
+  <field name="P1F16" panelnum="1" fieldnum="16" listname="AccountsContact" format="A50"   editorder="20" >
+
+</field>
+  <field name="P1F22" panelnum="1" fieldnum="22" listname="ApplicationDomain" format="A60"   editorder="21" >
+
+</field>
+  <field name="P1F23" panelnum="1" fieldnum="23" listname="AppFolder" format="A60"   editorder="22" >
+<note><![CDATA[All spaces are stripped with the field formula]]></note>
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~apply.format["A60;;D";~  FIELD=P1F23 ~]~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P1F24" panelnum="1" fieldnum="24" listname="AppCode" format="A10"   editorder="23" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF length[subfield[~  FIELD=P1F23 ~;"/\";2]]=0 THEN~  CR
+~   subfield[~  FIELD=P1F23 ~;"/\";1]~  CR
+~ELSE IF length[subfield[~  FIELD=P1F23 ~;"/\";3]]=0 THEN~  CR
+~   subfield[~  FIELD=P1F23 ~;"/\";2]~  CR
+~ELSE IF length[subfield[~  FIELD=P1F23 ~;"/\";4]]=0 THEN~  CR
+~   subfield[~  FIELD=P1F23 ~;"/\";3]~  CR
+~ELSE IF length[subfield[~  FIELD=P1F23 ~;"/\";5]]=0 THEN~  CR
+~   subfield[~  FIELD=P1F23 ~;"/\";4]~  CR
+~ELSE IF length[subfield[~  FIELD=P1F23 ~;"/\";6]]=0 THEN~  CR
+~   subfield[~  FIELD=P1F23 ~;"/\";5]~  CR
+~ENDIF ENDIF ENDIF ENDIF ENDIF~  CR
+ CR
+ CR
+ CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P1F18" panelnum="1" fieldnum="18" listname="One" format="G9::H"   editorder="24" >
+<note><![CDATA[This field has an Initial Value at Create set to the number 1. This field is used as the sole value in an index ensuring that this panel can only have one record.]]></note>
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P1F18" listname="One" number="18" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="CONFIG.DAT" listname="CONFIG.DAT   System Configuration and Defaults" recsize="18" panelnum="2">
+  <field name="P2F1" panelnum="2" fieldnum="1" listname="One" format="G9::H"   editorder="1" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P2F4" panelnum="2" fieldnum="4" listname="CurrentYear" format="A5::M" link="YEARS.DAT"  editorder="2" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[~apply.format["DYMD9999";today]~ ]]>
+<!-- ***************************************-->
+    </formula>
+<link topanelnum="17" panelname="YEARS.DAT" targetfield="1" targetindex="1" fieldlist="4" >      <fieldlist>
+
+     <field order=" 1" name="P2F  4" listname="CurrentYear" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P2F2" panelnum="2" fieldnum="2" listname="AssociationRegistrationLevel" format="U1"   editorder="3" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P2F2 ~ CASES~  CR
+~CASE cv="U" OF "U" ENDOF /* User or person */~  CR
+~CASE cv="R" OF "R" ENDOF /* Role */~  CR
+~CASE cv="G" OF "T" ENDOF /* Group or Team */~  CR
+~CASE cv="T" OF "T" ENDOF /* Group or Team */~  CR
+~DEFAULT ""~  CR
+~ENDCASES~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P2F3" panelnum="2" fieldnum="3" listname="LevelDesc" format="A18::C"   editorder="4" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P2F2 ~ CASES~  CR
+~CASE cv="U" OF "User level" ENDOF~  CR
+~CASE cv="R" OF "Role level" ENDOF~  CR
+~CASE cv="G" OF "Group (Team) level" ENDOF~  CR
+~CASE cv="T" OF "Group (Team) level" ENDOF~  CR
+~DEFAULT "<Undefined>"~  CR
+~ENDCASES~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P2F5" panelnum="2" fieldnum="5" listname="LinkToLicenceInfo" format="Panel Link" link="INFORM.DAT"  editorder="5" >
+<link topanelnum="1" panelname="INFORM.DAT" targetfield="1" targetindex="1" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P2F6" panelnum="2" fieldnum="6" listname="Debug" format="G9"   editorder="6" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P2F1" listname="One" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="WEBPARAM.DAT" listname="WEBPARAM.DAT Parameters from Synthetic T-Log File" recsize="223" panelnum="3">
+  <field name="P3F1" panelnum="3" fieldnum="1" listname="SessionID" format="U60::M"   editorder="1" >
+
+</field>
+  <field name="P3F2" panelnum="3" fieldnum="2" listname="Field" format="A78"   editorder="2" >
+
+</field>
+  <field name="P3F3" panelnum="3" fieldnum="3" listname="Value" format="A78"   editorder="3" >
+
+</field>
+  <field name="P3F4" panelnum="3" fieldnum="4" listname="LongValue" format="A78A4"   editorder="4" >
+
+</field>
+  <field name="P3F5" panelnum="3" fieldnum="5" listname="ReportNumber" format="GZZZ::M"   editorder="5" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P3F5" listname="ReportNumber" number="5" />
+     <field order=" 2" name="P3F1" listname="SessionID" number="1" />
+     <field order=" 3" name="P3F2" listname="Field" number="2" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="IMPORT.DAT" listname="IMPORT.DAT      Panel in which to import bulk data" recsize="98" panelnum="4">
+  <field name="P4F1" panelnum="4" fieldnum="1" listname="ImportID" format="A12::M"   editorder="1" >
+
+</field>
+  <field name="P4F2" panelnum="4" fieldnum="2" listname="RecordNumber" format="GZZZZ9"   editorder="2" >
+
+</field>
+  <field name="P4F3" panelnum="4" fieldnum="3" listname="OrdinalPositionInImportFile" format="GZ9" link="IMPHEADR.DAT"  editorder="3" >
+<link topanelnum="14" panelname="IMPHEADR.DAT" targetfield="4" targetindex="1" fieldlist="1 3" >      <fieldlist>
+
+     <field order=" 1" name="P4F  1" listname="ImportID" number="1" />
+     <field order=" 2" name="P4F  3" listname="OrdinalPositionInImportFile" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P4F4" panelnum="4" fieldnum="4" listname="FieldData" format="A75"   editorder="4" >
+
+</field>
+  <field name="P4F5" panelnum="4" fieldnum="5" listname="LongData" format="A75A3"   editorder="5" >
+
+</field>
+  <field name="P4F6" panelnum="4" fieldnum="6" listname="FieldDescription" format="A20::C"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P4F3P14F4 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P4F1" listname="ImportID" number="1" />
+     <field order=" 2" name="P4F2" listname="RecordNumber" number="2" />
+     <field order=" 3" name="P4F3" listname="OrdinalPositionInImportFile" number="3" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="USERSTAT.DAT" listname="USERSTAT.DAT User Status such as Current, Future, Past, Unassign" recsize="41" panelnum="5">
+  <field name="P5F1" panelnum="5" fieldnum="1" listname="StatusCode" format="U1"   editorder="1" >
+
+</field>
+  <field name="P5F2" panelnum="5" fieldnum="2" listname="Description" format="A40"   editorder="2" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P5F1" listname="StatusCode" number="1" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P5F2" listname="Description" number="2" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="ROLES.DAT" listname="ROLES.DAT    Roles Master Table" recsize="57" panelnum="6">
+  <field name="P6F1" panelnum="6" fieldnum="1" listname="Role" format="H99"   editorder="1" >
+    <formula initialat="SAVE">
+<!-- ***************************************-->
+<![CDATA[~(IF ~  FIELD=P6F3 ~=0 THEN ~  FIELD=P6F4P6F1 ~ ELSE ~
+ FIELD=P6F5P6F1 ~ ENDIF) + 1~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P6F3" panelnum="6" fieldnum="3" listname="MinusRoleCode" format="G-99::H"   editorder="2" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~-~  FIELD=P6F1 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P6F4" panelnum="6" fieldnum="4" listname="RCL1" format="Panel Link" link="ROLES.DAT"  editorder="3" >
+<link topanelnum="6" panelname="ROLES.DAT" targetfield="1" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P6F5" panelnum="6" fieldnum="5" listname="RCL2" format="Panel Link" link="ROLES.DAT"  editorder="4" >
+<link topanelnum="6" panelname="ROLES.DAT" targetfield="1" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P6F2" panelnum="6" fieldnum="2" listname="RoleDescription" format="A30::M"   editorder="5" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~/* 1st 6 records */~  CR
+ FIELD=P6F1 ~ CASES~  CR
+~CASE cv=1 OF "System Admin" ENDOF~  CR
+~CASE cv=2 OF "Player"    ENDOF~  CR
+~CASE cv=3 OF "Official"  ENDOF~  CR
+~CASE cv=4 OF "Coach"     ENDOF~  CR
+~CASE cv=5 OF "Manager"   ENDOF~  CR
+~CASE cv=6 OF "Recruiter" ENDOF~  CR
+~DEFAULT ~  FIELD=P6F2  CR
+~ENDCASES~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P6F8" panelnum="6" fieldnum="8" listname="RoleType" format="U1::M"   editorder="6" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[~/* 1st 4 records */~  CR
+ FIELD=P6F1 ~ CASES~  CR
+~CASE cv=1 OF "A"  ENDOF~  CR
+~CASE cv=2 OF "P"  ENDOF~  CR
+~CASE cv=3 OF "A"  ENDOF~  CR
+~CASE cv=4 OF "A"  ENDOF~  CR
+~CASE cv=5 OF "A"  ENDOF~  CR
+~CASE cv=6 OF "A"  ENDOF~  CR
+~DEFAULT ~  FIELD=P6F2  CR
+~ENDCASES~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P6F9" panelnum="6" fieldnum="9" listname="Require registration" format="U1"   editorder="7" >
+
+</field>
+  <field name="P6F6" panelnum="6" fieldnum="6" listname="SendEmails?" format="U1"   editorder="8" >
+
+</field>
+  <field name="P6F10" panelnum="6" fieldnum="10" listname="SaveEmail?" format="U1"   editorder="9" >
+
+</field>
+  <field name="P6F11" panelnum="6" fieldnum="11" listname="DeleteWebMessage?" format="U1"   editorder="10" >
+
+</field>
+  <field name="P6F12" panelnum="6" fieldnum="12" listname="IncludeUndefined?" format="U1"   editorder="11" >
+
+</field>
+  <field name="P6F21" panelnum="6" fieldnum="21" listname="EmailLastSeason?" format="U1"   editorder="12" >
+
+</field>
+  <field name="P6F7" panelnum="6" fieldnum="7" listname="SendSMS?" format="U1"   editorder="13" >
+
+</field>
+  <field name="P6F13" panelnum="6" fieldnum="13" listname="SaveSMS" format="U1"   editorder="14" >
+
+</field>
+  <field name="P6F14" panelnum="6" fieldnum="14" listname="ManageSMSBudgets?" format="U1"   editorder="15" >
+
+</field>
+  <field name="P6F15" panelnum="6" fieldnum="15" listname="AddPeople?" format="U1"   editorder="16" >
+
+</field>
+  <field name="P6F16" panelnum="6" fieldnum="16" listname="EditPeople" format="U1"   editorder="17" >
+
+</field>
+  <field name="P6F17" panelnum="6" fieldnum="17" listname="DeletePeople" format="U1"   editorder="18" >
+
+</field>
+  <field name="P6F18" panelnum="6" fieldnum="18" listname="ChangeTeams?" format="U1"   editorder="19" >
+
+</field>
+  <field name="P6F19" panelnum="6" fieldnum="19" listname="CreateSurvey" format="U1"   editorder="20" >
+
+</field>
+  <field name="P6F20" panelnum="6" fieldnum="20" listname="ReportLevelAccess" format="H9"   editorder="21" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P6F1" listname="Role" number="1" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P6F3" listname="MinusRoleCode" number="3" />
+     </fields>
+   </index>
+   <index indexnum="3">
+     <fields>
+     <field order=" 1" name="P6F2" listname="RoleDescription" number="2" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="GROUPS.DAT" listname="GROUPS.DAT   Teams and Groups Master Table" recsize="133" panelnum="7">
+  <field name="P7F1" panelnum="7" fieldnum="1" listname="GroupID" format="G99::N"   editorder="1" >
+    <formula initialat="SAVE">
+<!-- ***************************************-->
+<![CDATA[~(IF ~  FIELD=P7F2 ~=0 THEN ~  FIELD=P7F3P7F1 ~ ELSE ~
+ FIELD=P7F4P7F1 ~ ENDIF) + 1~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P7F2" panelnum="7" fieldnum="2" listname="MinusGroupID" format="G-99::H"   editorder="2" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~-~  FIELD=P7F1 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P7F3" panelnum="7" fieldnum="3" listname="RCL1" format="Panel Link" link="GROUPS.DAT"  editorder="3" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="1" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P7F4" panelnum="7" fieldnum="4" listname="RCL2" format="Panel Link" link="GROUPS.DAT"  editorder="4" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="1" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P7F5" panelnum="7" fieldnum="5" listname="PlayingTeam_YN" format="U1::M"   editorder="5" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P7F5 ~ CASES ~  CR
+~CASE cv="y" OF "Y" ENDOF~  CR
+~CASE cv="n" OF "N" ENDOF~  CR
+~DEFAULT~  CR
+~     ~  FIELD=P7F1 ~ CASES~  CR
+~     CASE cv=1 OF "N" ENDOF~  CR
+~     DEFAULT ""~  CR
+~     ENDCASES   ~  CR
+~ENDCASES~  CR
+~   ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P7F6" panelnum="7" fieldnum="6" listname="GroupDescription" format="A40::M"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P7F1 ~ CASES~  CR
+~CASE cv=1 OF "Officials" ENDOF~  CR
+~DEFAULT~  CR
+~   ~  FIELD=P7F6  CR
+~ENDCASES~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P7F12" panelnum="7" fieldnum="12" listname="aka" format="A40"   editorder="7" >
+
+</field>
+  <field name="P7F9" panelnum="7" fieldnum="9" listname="Association" format="A10" link="ASSOC.DAT"  editorder="8" >
+<link topanelnum="15" panelname="ASSOC.DAT" targetfield="2" targetindex="1" fieldlist="9" >      <fieldlist>
+
+     <field order=" 1" name="P7F  9" listname="Association" number="9" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P7F7" panelnum="7" fieldnum="7" listname="Low" format="HZ9"   editorder="9" >
+
+</field>
+  <field name="P7F8" panelnum="7" fieldnum="8" listname="High" format="HZ9"   editorder="10" >
+
+</field>
+  <field name="P7F10" panelnum="7" fieldnum="10" listname="Category" format="A20" link="CATEGORY.DAT"  editorder="11" >
+<link topanelnum="16" panelname="CATEGORY.DAT" targetfield="1" targetindex="1" fieldlist="10" >      <fieldlist>
+
+     <field order=" 1" name="P7F 10" listname="Category" number="10" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P7F11" panelnum="7" fieldnum="11" listname="Division" format="A6"   editorder="12" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P7F1" listname="GroupID" number="1" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P7F2" listname="MinusGroupID" number="2" />
+     </fields>
+   </index>
+   <index indexnum="3">
+     <fields>
+     <field order=" 1" name="P7F6" listname="GroupDescription" number="6" />
+     </fields>
+   </index>
+   <index indexnum="4">
+     <fields>
+     <field order=" 1" name="P7F9" listname="Association" number="9" />
+     <field order=" 2" name="P7F1" listname="GroupID" number="1" />
+     </fields>
+   </index>
+   <index indexnum="5">
+     <fields>
+     <field order=" 1" name="P7F10" listname="Category" number="10" />
+     <field order=" 2" name="P7F1" listname="GroupID" number="1" />
+     </fields>
+   </index>
+   <index indexnum="6">
+     <fields>
+     <field order=" 1" name="P7F12" listname="aka" number="12" />
+     <field order=" 2" name="P7F1" listname="GroupID" number="1" />
+     </fields>
+   </index>
+   <index indexnum="7">
+     <fields>
+     <field order=" 1" name="P7F10" listname="Category" number="10" />
+     <field order=" 2" name="P7F6" listname="GroupDescription" number="6" />
+     <field order=" 3" name="P7F1" listname="GroupID" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="LOGINS.DAT" listname="LOGINS.DAT   Session Login data" recsize="27" panelnum="8">
+  <field name="P8F1" panelnum="8" fieldnum="1" listname="SUID" format="G999999::N" link="USERS.DAT"  editorder="1" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P8F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P8F2" panelnum="8" fieldnum="2" listname="IPAddr" format="A15::M"   editorder="2" >
+
+</field>
+  <field name="P8F3" panelnum="8" fieldnum="3" listname="LoginMoment" format="GZZZZZZZZZ9::M"   editorder="3" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[~(today * 86400) + now~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P8F4" panelnum="8" fieldnum="4" listname="calcLoginDate" format="DYMD9999-99-99::C"   editorder="4" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P8F3 ~/86400~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P8F9" panelnum="8" fieldnum="9" listname="calcName" format="A30::C"   editorder="5" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P8F1 ~=1 then~  CR
+~   ~  FIELD=P8F1P9F6  CR
+~ELSE~  CR
+~   truncate[~  FIELD=P8F1P9F6 ~] " " ~  FIELD=P8F1P9F7  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P8F5" panelnum="8" fieldnum="5" listname="CalcLoginTime" format="THMS99:99:99::C"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P8F3 ~ // 86400~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P8F1" listname="SUID" number="1" />
+     <field order=" 2" name="P8F2" listname="IPAddr" number="2" />
+     <field order=" 3" name="P8F3" listname="LoginMoment" number="3" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P8F3" listname="LoginMoment" number="3" />
+     <field order=" 2" name="P8F1" listname="SUID" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="USERS.DAT" listname="USER.DAT     Users, eg Players, Officials, Unauthenticated peopl" recsize="383" panelnum="9">
+  <field name="P9F1" panelnum="9" fieldnum="1" listname="One" format="G9::H"   editorder="1" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F2" panelnum="9" fieldnum="2" listname="SystemGeneratedSUID" format="G999999::M"   editorder="2" >
+    <formula initialat="SAVE">
+<!-- ***************************************-->
+<![CDATA[~(IF ~  FIELD=P9F3 ~=0 THEN ~  FIELD=P9F4P9F2 ~ ELSE ~
+ FIELD=P9F5P9F2 ~ ENDIF) + 1~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F3" panelnum="9" fieldnum="3" listname="ReverseGeneratedID" format="G-999999::H"   editorder="3" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~-~  FIELD=P9F2 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F4" panelnum="9" fieldnum="4" listname="RCL1" format="Panel Link" link="USERS.DAT"  editorder="4" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="2" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P9F5" panelnum="9" fieldnum="5" listname="RCL2" format="Panel Link" link="USERS.DAT"  editorder="5" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="2" targetindex="2" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P9F6" panelnum="9" fieldnum="6" listname="FirstName" format="A20::M"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "System Admin"~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F6  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F7" panelnum="9" fieldnum="7" listname="LastName" format="A20::M"   editorder="7" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "Admin"~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F7  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F8" panelnum="9" fieldnum="8" listname="LoginID" format="A20::M"   editorder="8" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "admin"~  CR
+~ELSE~  CR
+~   lower.case[~  FIELD=P9F8 ~]~  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F15" panelnum="9" fieldnum="15" listname="Password" format="A12"   editorder="9" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 AND ~  FIELD=P9F15 ~="" THEN~  CR
+~    "espxttbq"  /* password */~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F15  CR
+~ENDIF~  CR
+~   ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F23" panelnum="9" fieldnum="23" listname="Status" format="U1" link="USERSTAT.DAT"  editorder="10" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "C"~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F23  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+<link topanelnum="5" panelname="USERSTAT.DAT" targetfield="2" targetindex="1" fieldlist="23" >      <fieldlist>
+
+     <field order=" 1" name="P9F 23" listname="Status" number="23" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F24" panelnum="9" fieldnum="24" listname="calcStatusMessage" format="A40::C"   editorder="11" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P9F23P5F2 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F25" panelnum="9" fieldnum="25" listname="PrimarilyAs" format="U1"   editorder="12" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "O"~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F25 ~ CASES~  CR
+~   CASE cv="p" OF "P" ENDOF~  CR
+~   CASE cv="o" OF "O" ENDOF~  CR
+~   CASE cv="c" OF "C" ENDOF~  CR
+~   DEFAULT ""~  CR
+~   ENDCASES~  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F26" panelnum="9" fieldnum="26" listname="calcPrimarilyAs" format="A20::C"   editorder="13" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P9F25 ~ CASES~  CR
+~CASE cv="P" OF "Player" ENDOF~  CR
+~CASE cv="O" OF "Official" ENDOF~  CR
+~CASE cv="C" OF "Coach" ENDOF~  CR
+~DEFAULT ""~  CR
+~ENDCASES~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F41" panelnum="9" fieldnum="41" listname="PrimaryCategory" format="A20" link="CATEGORY.DAT"  editorder="14" >
+<link topanelnum="16" panelname="CATEGORY.DAT" targetfield="1" targetindex="1" fieldlist="41" >      <fieldlist>
+
+     <field order=" 1" name="P9F 41" listname="PrimaryCategory" number="41" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F27" panelnum="9" fieldnum="27" listname="RequiredAuthentication_YN" format="U1::M"   editorder="15" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F2 ~=1 THEN~  CR
+~   "N"~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F27  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F20" panelnum="9" fieldnum="20" listname="AuthenticationCode" format="A10"   editorder="16" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F20 ~="" AND ~  FIELD=P9F27 ~="Y" THEN~  CR
+~  apply.format["GZZZZZZZZZ9";(today * 86400) + now]~  CR
+~ELSE~  CR
+~   ~  FIELD=P9F20  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F22" panelnum="9" fieldnum="22" listname="Authenticated_YN" format="U1::N"   editorder="17" >
+
+</field>
+  <field name="P9F9" panelnum="9" fieldnum="9" listname="Address1" format="A50"   editorder="18" >
+
+</field>
+  <field name="P9F10" panelnum="9" fieldnum="10" listname="Suburb" format="A40"   editorder="19" >
+
+</field>
+  <field name="P9F31" panelnum="9" fieldnum="31" listname="State" format="A20;;B"   editorder="20" >
+
+</field>
+  <field name="P9F11" panelnum="9" fieldnum="11" listname="PostCode" format="A10"   editorder="21" >
+
+</field>
+  <field name="P9F12" panelnum="9" fieldnum="12" listname="HomePhone" format="A15"   editorder="22" >
+
+</field>
+  <field name="P9F13" panelnum="9" fieldnum="13" listname="MobilePhone" format="A15"   editorder="23" >
+
+</field>
+  <field name="P9F14" panelnum="9" fieldnum="14" listname="WorkPhone" format="A15"   editorder="24" >
+
+</field>
+  <field name="P9F18" panelnum="9" fieldnum="18" listname="LinkToEmail" format="Panel Link" link="USERMAIL.DAT" cascade="Update and Delete" editorder="25" >
+<link topanelnum="10" panelname="USERMAIL.DAT" targetfield="3" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P9F  2" listname="SystemGeneratedSUID" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F29" panelnum="9" fieldnum="29" listname="DOB" format="DYMD9999-99-99"   editorder="26" >
+
+</field>
+  <field name="P9F40" panelnum="9" fieldnum="40" listname="Gender" format="U1"   editorder="27" >
+
+</field>
+  <field name="P9F21" panelnum="9" fieldnum="21" listname="ShareWithTeam" format="U1"   editorder="28" >
+
+</field>
+  <field name="P9F30" panelnum="9" fieldnum="30" listname="EmergencyContact" format="A60"   editorder="29" >
+
+</field>
+  <field name="P9F16" panelnum="9" fieldnum="16" listname="FirstYear" format="A5"   editorder="30" >
+    <formula initialat="SAVE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P9F16 ~="" THEN~  CR
+~   ~  FIELD=P9F17P2F4  CR
+~ELSE~  CR
+~   ~  FIELD=P9F16  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F19" panelnum="9" fieldnum="19" listname="AssociationRegistrationID" format="A10"   editorder="31" >
+
+</field>
+  <field name="P9F28" panelnum="9" fieldnum="28" listname="LinkToRoles" format="Panel Link" link="USERROLE.DAT" cascade="Update and Delete" editorder="32" >
+<link topanelnum="11" panelname="USERROLE.DAT" targetfield="4" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P9F  2" listname="SystemGeneratedSUID" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F17" panelnum="9" fieldnum="17" listname="LinkToConfig" format="Panel Link" link="CONFIG.DAT"  editorder="33" >
+<link topanelnum="2" panelname="CONFIG.DAT" targetfield="4" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P9F  1" listname="One" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F32" panelnum="9" fieldnum="32" listname="SourceOfData" format="U1"   editorder="34" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P9F32 ~ CASES~  CR
+~CASE cv="W" OF "W" ENDOF /* Web registration by self */~  CR
+~CASE cv="S" OF "W" ENDOF /* Web registration by self */~  CR
+~CASE cv="I" OF "I" ENDOF /* Data Import */~  CR
+~CASE cv="A" OF "A" ENDOF /* Some administrative entry, eg coach,official */~  CR
+~DEFAULT "D" /* dataperfect interactive or other??   */~  CR
+~ENDCASES~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F39" panelnum="9" fieldnum="39" listname="LinkToNotes" format="Panel Link" link="USERNOTE.DAT" cascade="Update and Delete" editorder="35" >
+<link topanelnum="18" panelname="USERNOTE.DAT" targetfield="3" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P9F  2" listname="SystemGeneratedSUID" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F33" panelnum="9" fieldnum="33" listname="CountOfRoles" format="HZ9::N"   editorder="36" >
+
+</field>
+  <field name="P9F34" panelnum="9" fieldnum="34" listname="CreateDate" format="DYMD9999-99-99"   editorder="37" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[~today~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F35" panelnum="9" fieldnum="35" listname="CreateTime" format="THMS99:99"   editorder="38" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[~now~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F36" panelnum="9" fieldnum="36" listname="EditDate" format="DYMD9999-99-99"   editorder="39" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~today~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F37" panelnum="9" fieldnum="37" listname="EditTime" format="THMS99:99"   editorder="40" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~now~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P9F38" panelnum="9" fieldnum="38" listname="LastUser" format="G999999::N"   editorder="41" >
+
+</field>
+  <field name="P9F42" panelnum="9" fieldnum="42" listname="LinkToURG" format="Panel Link" link="URG.DAT" cascade="Update and Delete" editorder="42" >
+<link topanelnum="12" panelname="URG.DAT" targetfield="1" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P9F  2" listname="SystemGeneratedSUID" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P9F43" panelnum="9" fieldnum="43" listname="LinkToRegoID" format="Panel Link" link="REGO.DAT" cascade="Update and Delete" editorder="43" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="3" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P9F  2" listname="SystemGeneratedSUID" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P9F2" listname="SystemGeneratedSUID" number="2" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P9F3" listname="ReverseGeneratedID" number="3" />
+     </fields>
+   </index>
+   <index indexnum="3">
+     <fields>
+     <field order=" 1" name="P9F8" listname="LoginID" number="8" />
+     </fields>
+   </index>
+   <index indexnum="4">
+     <fields>
+     <field order=" 1" name="P9F6" listname="FirstName" number="6" />
+     <field order=" 2" name="P9F7" listname="LastName" number="7" />
+     <field order=" 3" name="P9F2" listname="SystemGeneratedSUID" number="2" />
+     </fields>
+   </index>
+   <index indexnum="5">
+     <fields>
+     <field order=" 1" name="P9F7" listname="LastName" number="7" />
+     <field order=" 2" name="P9F6" listname="FirstName" number="6" />
+     <field order=" 3" name="P9F2" listname="SystemGeneratedSUID" number="2" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="USERMAIL.DAT" listname="USERMAIL.DAT    Users Emails Addresses" recsize="85" panelnum="10">
+  <field name="P10F1" panelnum="10" fieldnum="1" listname="SUID" format="G999999::N" link="USERS.DAT"  editorder="1" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P10F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P10F2" panelnum="10" fieldnum="2" listname="Name" format="A30::C"   editorder="2" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~truncate[~  FIELD=P10F1P9F6 ~] " " ~  FIELD=P10F1P9F7 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P10F3" panelnum="10" fieldnum="3" listname="EmailAddress" format="A75::M"   editorder="3" >
+
+</field>
+  <field name="P10F4" panelnum="10" fieldnum="4" listname="DaysOfWeek" format="U6"   editorder="4" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P10F1" listname="SUID" number="1" />
+     <field order=" 2" name="P10F3" listname="EmailAddress" number="3" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P10F3" listname="EmailAddress" number="3" />
+     <field order=" 2" name="P10F1" listname="SUID" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="USERROLE.DAT" listname="USERROLE.DAT    User Roles, ie roles user has had assigned to th" recsize="85" panelnum="11">
+  <field name="P11F1" panelnum="11" fieldnum="1" listname="SUID" format="G999999::N" link="USERS.DAT"  editorder="1" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P11F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F2" panelnum="11" fieldnum="2" listname="Name" format="A30::C"   editorder="2" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~truncate[~  FIELD=P11F1P9F6 ~] " " ~  FIELD=P11F1P9F7 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P11F4" panelnum="11" fieldnum="4" listname="Role" format="G99::M" link="ROLES.DAT"  editorder="3" >
+<link topanelnum="6" panelname="ROLES.DAT" targetfield="2" targetindex="1" fieldlist="4" >      <fieldlist>
+
+     <field order=" 1" name="P11F  4" listname="Role" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F5" panelnum="11" fieldnum="5" listname="RoleDesc" format="A30::C"   editorder="4" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P11F4P6F2 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P11F3" panelnum="11" fieldnum="3" listname="Year" format="A5" link="YEARS.DAT"  editorder="5" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P11F7P2F4 ]]>
+<!-- ***************************************-->
+    </formula>
+<link topanelnum="17" panelname="YEARS.DAT" targetfield="1" targetindex="1" fieldlist="3" >      <fieldlist>
+
+     <field order=" 1" name="P11F  3" listname="Year" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F8" panelnum="11" fieldnum="8" listname="CurrentSeasonHider" format="G9::N"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~cat.t["@#$";~  FIELD=P11F3 ~;"@#$"] = cat.t["@#$";~
+ FIELD=P11F7P2F4 ~;"@#$"] ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P11F6" panelnum="11" fieldnum="6" listname="One" format="G9::H"   editorder="7" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+<keepatotal operation="Add" link="P11F1" target="P9F33"
+ />
+
+</field>
+  <field name="P11F9" panelnum="11" fieldnum="9" listname="Title" format="A40"   editorder="8" >
+
+</field>
+  <field name="P11F12" panelnum="11" fieldnum="12" listname="Category" format="A20" link="CATEGORY.DAT"  editorder="9" >
+<link topanelnum="16" panelname="CATEGORY.DAT" targetfield="1" targetindex="1" fieldlist="12" >      <fieldlist>
+
+     <field order=" 1" name="P11F 12" listname="Category" number="12" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F10" panelnum="11" fieldnum="10" listname="LinkToTeams_Groups" format="Panel Link" link="URG.DAT" cascade="Update and Delete" editorder="10" >
+<link topanelnum="12" panelname="URG.DAT" targetfield="4" targetindex="1" fieldlist="1 4 3" >      <fieldlist>
+
+     <field order=" 1" name="P11F  1" listname="SUID" number="1" />
+     <field order=" 2" name="P11F  4" listname="Role" number="4" />
+     <field order=" 3" name="P11F  3" listname="Year" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F11" panelnum="11" fieldnum="11" listname="CountOfTeams" format="HZ9::N"   editorder="11" >
+
+</field>
+  <field name="P11F7" panelnum="11" fieldnum="7" listname="LinkToConfig" format="Panel Link" link="CONFIG.DAT"  editorder="12" >
+<link topanelnum="2" panelname="CONFIG.DAT" targetfield="4" targetindex="1" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P11F13" panelnum="11" fieldnum="13" listname="LinkToRegoAtUserLevel" format="Panel Link" link="REGO.DAT"  editorder="13" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="1" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P11F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F14" panelnum="11" fieldnum="14" listname="LinkToRegoIDAtRoleLevel" format="Panel Link" link="REGO.DAT"  editorder="14" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="1" targetindex="1" fieldlist="1 3 4" >      <fieldlist>
+
+     <field order=" 1" name="P11F  1" listname="SUID" number="1" />
+     <field order=" 2" name="P11F  3" listname="Year" number="3" />
+     <field order=" 3" name="P11F  4" listname="Role" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P11F15" panelnum="11" fieldnum="15" listname="RegoID" format="A10::C"   editorder="15" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P11F4P6F9 ~ CASES~  CR
+~CASE cv="T" OF "<Team>" ENDOF~  CR
+~CASE cv="R" OF ~  FIELD=P11F14P20F5 ~ ENDOF~  CR
+~CASE cv="U" OF ~  FIELD=P11F13P20F5 ~ ENDOF~  CR
+~CASE cv="N" OF "" ENDOF~  CR
+~ENDCASES~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P11F1" listname="SUID" number="1" />
+     <field order=" 2" name="P11F4" listname="Role" number="4" />
+     <field order=" 3" name="P11F3" listname="Year" number="3" />
+     <field order=" 4" name="P11F12" listname="Category" number="12" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P11F3" listname="Year" number="3" />
+     <field order=" 2" name="P11F1" listname="SUID" number="1" />
+     <field order=" 3" name="P11F4" listname="Role" number="4" />
+     </fields>
+   </index>
+   <index indexnum="3">
+     <fields>
+     <field order=" 1" name="P11F1" listname="SUID" number="1" />
+     <field order=" 2" name="P11F4" listname="Role" number="4" />
+     </fields>
+<exceptionlist>
+     <field name="P11F8" listname="CurrentSeasonHider" />
+
+</exceptionlist>
+   </index>
+   <index indexnum="4">
+     <fields>
+     <field order=" 1" name="P11F12" listname="Category" number="12" />
+     <field order=" 2" name="P11F3" listname="Year" number="3" />
+     <field order=" 3" name="P11F4" listname="Role" number="4" />
+     <field order=" 4" name="P11F1" listname="SUID" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="URG.DAT" listname="URG.DAT             User-Role-Groups, ie Groups assigned to a us" recsize="25" panelnum="12">
+  <field name="P12F1" panelnum="12" fieldnum="1" listname="SUID" format="G999999::NM" link="USERS.DAT"  editorder="1" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P12F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F2" panelnum="12" fieldnum="2" listname="Role" format="G99::M" link="ROLES.DAT"  editorder="2" >
+<link topanelnum="6" panelname="ROLES.DAT" targetfield="2" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P12F  2" listname="Role" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F3" panelnum="12" fieldnum="3" listname="Year" format="A5::M" link="YEARS.DAT"  editorder="3" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P12F3 ~="" THEN~  CR
+~   ~  FIELD=P12F9P2F4  CR
+~ELSE~  CR
+~   ~  FIELD=P12F3  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+<link topanelnum="17" panelname="YEARS.DAT" targetfield="1" targetindex="1" fieldlist="3" >      <fieldlist>
+
+     <field order=" 1" name="P12F  3" listname="Year" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F4" panelnum="12" fieldnum="4" listname="Group" format="G99::M" link="GROUPS.DAT"  editorder="4" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="10" targetindex="1" fieldlist="4" >      <fieldlist>
+
+     <field order=" 1" name="P12F  4" listname="Group" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F5" panelnum="12" fieldnum="5" listname="calcName" format="A30::C"   editorder="5" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~truncate[~  FIELD=P12F1P9F6 ~] " " ~  FIELD=P12F1P9F7 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F6" panelnum="12" fieldnum="6" listname="calcRoleDesc" format="A34::C"   editorder="6" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P12F2P6F2 ~ " (" ~  FIELD=P12F2P6F8 ~ ")"~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F7" panelnum="12" fieldnum="7" listname="calcGroupDesc" format="A45::C"   editorder="7" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~truncate[~  FIELD=P12F4P7F6 ~] IF length[~  FIELD=P12F4P7F12
+~]>0 THEN " (aka " truncate[~  FIELD=P12F4P7F12 ~] ")" ELSE "" ENDIF~  CR
+]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F8" panelnum="12" fieldnum="8" listname="One" format="GZ::H"   editorder="8" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+<keepatotal operation="Add" link="P12F13" target="P11F11"
+ />
+
+</field>
+  <field name="P12F9" panelnum="12" fieldnum="9" listname="LinkToConfig" format="Panel Link" link="CONFIG.DAT"  editorder="9" >
+<link topanelnum="2" panelname="CONFIG.DAT" targetfield="4" targetindex="1" fieldlist="" >
+
+</link>
+
+</field>
+  <field name="P12F10" panelnum="12" fieldnum="10" listname="CurrentSeason" format="G9::N"   editorder="10" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~cat.t["@#$";~  FIELD=P12F3 ~;"@#$"] = cat.t["@#$";~
+ FIELD=P12F9P2F4 ~;"@#$"] ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F11" panelnum="12" fieldnum="11" listname="Category" format="A20::C"   editorder="11" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P12F4P7F10 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F12" panelnum="12" fieldnum="12" listname="UserRoleClass" format="A10::C"   editorder="12" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P12F13P11F12 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P12F13" panelnum="12" fieldnum="13" listname="PseudoDatLinkToParentUserRole" format="Panel Link" link="USERROLE.DAT"  editorder="13" >
+<link topanelnum="11" panelname="USERROLE.DAT" targetfield="1" targetindex="1" fieldlist="1 2 3" >      <fieldlist>
+
+     <field order=" 1" name="P12F  1" listname="SUID" number="1" />
+     <field order=" 2" name="P12F  2" listname="Role" number="2" />
+     <field order=" 3" name="P12F  3" listname="Year" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F14" panelnum="12" fieldnum="14" listname="LinkToRegoAtUserLevel" format="Panel Link" link="REGO.DAT"  editorder="14" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="3" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P12F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F15" panelnum="12" fieldnum="15" listname="LinkToRegoAtRoleLevel" format="Panel Link" link="REGO.DAT"  editorder="15" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="1" targetindex="1" fieldlist="1 3 2" >      <fieldlist>
+
+     <field order=" 1" name="P12F  1" listname="SUID" number="1" />
+     <field order=" 2" name="P12F  3" listname="Year" number="3" />
+     <field order=" 3" name="P12F  2" listname="Role" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F16" panelnum="12" fieldnum="16" listname="LinkToRegoAtTeamLevel" format="Panel Link" link="REGO.DAT"  editorder="16" >
+<link topanelnum="20" panelname="REGO.DAT" targetfield="3" targetindex="1" fieldlist="1 3 2 4" >      <fieldlist>
+
+     <field order=" 1" name="P12F  1" listname="SUID" number="1" />
+     <field order=" 2" name="P12F  3" listname="Year" number="3" />
+     <field order=" 3" name="P12F  2" listname="Role" number="2" />
+     <field order=" 4" name="P12F  4" listname="Group" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P12F17" panelnum="12" fieldnum="17" listname="RegoID" format="A10::C"   editorder="17" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P12F2P6F9 ~ CASES~  CR
+~CASE cv="T" OF ~  FIELD=P12F16P20F5 ~ ENDOF~  CR
+~CASE cv="R" OF ~  FIELD=P12F15P20F5 ~ ENDOF~  CR
+~CASE cv="U" OF ~  FIELD=P12F14P20F5 ~ ENDOF~  CR
+~CASE cv="N" OF "" ENDOF~  CR
+~ENDCASES  ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P12F1" listname="SUID" number="1" />
+     <field order=" 2" name="P12F2" listname="Role" number="2" />
+     <field order=" 3" name="P12F3" listname="Year" number="3" />
+     <field order=" 4" name="P12F4" listname="Group" number="4" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="ERROR.DAT" listname="ERROR.DAT    Return Codes and Error codes from operations" recsize="44" panelnum="13">
+  <field name="P13F1" panelnum="13" fieldnum="1" listname="ErrorCode" format="GZZ9;;B"   editorder="1" >
+
+</field>
+  <field name="P13F2" panelnum="13" fieldnum="2" listname="ErrMsg" format="A40::M"   editorder="2" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P13F1" listname="ErrorCode" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="IMPHEADR.DAT" listname="IMPHEADR.DAT Import File Header" recsize="48" panelnum="14">
+  <field name="P14F1" panelnum="14" fieldnum="1" listname="ImportHeader" format="A12::M"   editorder="1" >
+
+</field>
+  <field name="P14F3" panelnum="14" fieldnum="3" listname="FieldPosition" format="GZ9"   editorder="2" >
+
+</field>
+  <field name="P14F4" panelnum="14" fieldnum="4" listname="FieldName" format="A30"   editorder="3" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P14F1" listname="ImportHeader" number="1" />
+     <field order=" 2" name="P14F3" listname="FieldPosition" number="3" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="ASSOC.DAT" listname="ASSOC.DAT    Information about Associations in which teams play" recsize="120" panelnum="15">
+  <field name="P15F1" panelnum="15" fieldnum="1" listname="Code" format="A10"   editorder="1" >
+
+</field>
+  <field name="P15F2" panelnum="15" fieldnum="2" listname="AssociationName" format="A50"   editorder="2" >
+
+</field>
+  <field name="P15F3" panelnum="15" fieldnum="3" listname="WebSite" format="A60"   editorder="3" >
+
+</field>
+  <field name="P15F4" panelnum="15" fieldnum="4" listname="LinkToTeams" format="Panel Link" link="GROUPS.DAT" cascade="Update" editorder="4" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="6" targetindex="4" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P15F  1" listname="Code" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P15F1" listname="Code" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="CATEGORY.DAT" listname="CATEGORY.DAT The class of team, eg mens, women's boys, girls," recsize="23" panelnum="16">
+  <field name="P16F1" panelnum="16" fieldnum="1" listname="Category" format="A20::M"   editorder="1" >
+
+</field>
+  <field name="P16F2" panelnum="16" fieldnum="2" listname="Notes" format="A40A3"   editorder="2" >
+
+</field>
+  <field name="P16F3" panelnum="16" fieldnum="3" listname="LinkToTeams" format="Panel Link" link="GROUPS.DAT" cascade="Update" editorder="3" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="6" targetindex="5" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P16F  1" listname="Category" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P16F4" panelnum="16" fieldnum="4" listname="LinkToUserRoles" format="Panel Link" link="USERROLE.DAT" cascade="Update" editorder="4" >
+<link topanelnum="11" panelname="USERROLE.DAT" targetfield="4" targetindex="4" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P16F  1" listname="Category" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P16F1" listname="Category" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="YEARS.DAT" listname="YEARS.DAT    Years recorded in the system" recsize="69" panelnum="17">
+  <field name="P17F1" panelnum="17" fieldnum="1" listname="YearCode" format="A5::M"   editorder="1" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF lower.case[~  FIELD=P17F1 ~]="past"  OR~  CR
+~   (~  CR
+~   contains["12";"*" substring[~  FIELD=P17F1 ~;1;1] "*"] AND~  CR
+~   contains["90";"*" substring[~  FIELD=P17F1 ~;2;1] "*"] AND~  CR
+~   contains["01234567890";"*" substring[~  FIELD=P17F1 ~;3;1] "*"] AND~  CR
+~   contains["01234567890";"*" substring[~  FIELD=P17F1 ~;4;1] "*"] AND~  CR
+~   (contains["abcdefghijklmnopqrstuvwxyz";"*" substring[~
+ FIELD=P17F1 ~;5;1] "*"] OR length[~  FIELD=P17F1 ~]=4) ~  CR
+~   )THEN~  CR
+ CR
+~   ~  FIELD=P17F1  CR
+~ELSE~  CR
+~   ""~  CR
+~ENDIF~  CR
+ CR
+~      ~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P17F2" panelnum="17" fieldnum="2" listname="Description" format="A60"   editorder="2" >
+
+</field>
+  <field name="P17F3" panelnum="17" fieldnum="3" listname="ReverseYearSeasonCodeForReverseIndex" format="G99999"   editorder="3" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~99999 -~  CR
+~(~  CR
+~(convert["G9999";substring[~  FIELD=P17F1 ~;1;4]] * 10) +~  CR
+~((length[subfield["#abcdef";lower.case[substring[~  FIELD=P17F1
+~;5;1]];1]])//7)~  CR
+~)~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P17F1" listname="YearCode" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="USERNOTE.DAT" listname="USERNOTE.DAT Notes about user" recsize="17" panelnum="18">
+  <field name="P18F1" panelnum="18" fieldnum="1" listname="SUID" format="G999999::N" link="USERS.DAT"  editorder="1" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P18F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P18F2" panelnum="18" fieldnum="2" listname="Name" format="A30::C"   editorder="2" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~truncate[~  FIELD=P18F1P9F6 ~] " " ~  FIELD=P18F1P9F7 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P18F3" panelnum="18" fieldnum="3" listname="NoteType" format="U1::M" link="NOTETYPE.DAT"  editorder="3" >
+<link topanelnum="19" panelname="NOTETYPE.DAT" targetfield="1" targetindex="1" fieldlist="3" >      <fieldlist>
+
+     <field order=" 1" name="P18F  3" listname="NoteType" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P18F4" panelnum="18" fieldnum="4" listname="NoteTypeDesc" format="A30::C"   editorder="4" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P18F3P19F2 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P18F5" panelnum="18" fieldnum="5" listname="Year" format="A5"   editorder="5" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P18F8P2F4 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P18F6" panelnum="18" fieldnum="6" listname="Note" format="A78A7"   editorder="6" >
+
+</field>
+  <field name="P18F7" panelnum="18" fieldnum="7" listname="One" format="G9::H"   editorder="7" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P18F8" panelnum="18" fieldnum="8" listname="LinkToConfig" format="Panel Link" link="CONFIG.DAT"  editorder="8" >
+<link topanelnum="2" panelname="CONFIG.DAT" targetfield="4" targetindex="1" fieldlist="" >
+
+</link>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P18F1" listname="SUID" number="1" />
+     <field order=" 2" name="P18F3" listname="NoteType" number="3" />
+     <field order=" 3" name="P18F5" listname="Year" number="5" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="NOTETYPE.DAT" listname="NOTETYPE.DAT Types of notes about users" recsize="34" panelnum="19">
+  <field name="P19F1" panelnum="19" fieldnum="1" listname="Code" format="U1::M"   editorder="1" >
+
+</field>
+  <field name="P19F2" panelnum="19" fieldnum="2" listname="Description" format="A30::M"   editorder="2" >
+
+</field>
+  <field name="P19F3" panelnum="19" fieldnum="3" listname="Note" format="A50A2"   editorder="3" >
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P19F1" listname="Code" number="1" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+ <panel name="REGO.DAT" listname="REGO.DAT     Registration Information (Official)" recsize="41" panelnum="20">
+  <field name="P20F2" panelnum="20" fieldnum="2" listname="One" format="G9::H"   editorder="1" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[1                                                                             ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P20F1" panelnum="20" fieldnum="1" listname="SUID" format="G999999::N" link="USERS.DAT"  editorder="2" >
+<link topanelnum="9" panelname="USERS.DAT" targetfield="6" targetindex="1" fieldlist="1" >      <fieldlist>
+
+     <field order=" 1" name="P20F  1" listname="SUID" number="1" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P20F7" panelnum="20" fieldnum="7" listname="Username" format="A30::C"   editorder="3" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[~IF ~  FIELD=P20F1 ~=1 then~  CR
+~   ~  FIELD=P20F1P9F6  CR
+~ELSE~  CR
+~   truncate[~  FIELD=P20F1P9F6 ~] " " ~  FIELD=P20F1P9F7  CR
+~ENDIF~ ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P20F3" panelnum="20" fieldnum="3" listname="Role" format="H99" link="ROLES.DAT"  editorder="4" >
+<link topanelnum="6" panelname="ROLES.DAT" targetfield="2" targetindex="1" fieldlist="3" >      <fieldlist>
+
+     <field order=" 1" name="P20F  3" listname="Role" number="3" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P20F8" panelnum="20" fieldnum="8" listname="RoleDesc" format="A30::C"   editorder="5" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P20F3P6F2 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P20F10" panelnum="20" fieldnum="10" listname="Year" format="A5"   editorder="6" >
+    <formula initialat="CREATE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P20F11P2F4 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P20F4" panelnum="20" fieldnum="4" listname="Group" format="H99" link="GROUPS.DAT"  editorder="7" >
+<link topanelnum="7" panelname="GROUPS.DAT" targetfield="6" targetindex="1" fieldlist="4" >      <fieldlist>
+
+     <field order=" 1" name="P20F  4" listname="Group" number="4" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P20F9" panelnum="20" fieldnum="9" listname="TeamDesc" format="A30::C"   editorder="8" >
+    <formula initialat="CHANGE">
+<!-- ***************************************-->
+<![CDATA[ FIELD=P20F4P7F6 ]]>
+<!-- ***************************************-->
+    </formula>
+
+</field>
+  <field name="P20F6" panelnum="20" fieldnum="6" listname="Association" format="A10" link="ASSOC.DAT"  editorder="9" >
+<link topanelnum="15" panelname="ASSOC.DAT" targetfield="1" targetindex="1" fieldlist="6" >      <fieldlist>
+
+     <field order=" 1" name="P20F  6" listname="Association" number="6" />
+      </fieldlist>
+</link>
+
+</field>
+  <field name="P20F5" panelnum="20" fieldnum="5" listname="RegoID" format="A10"   editorder="10" >
+
+</field>
+  <field name="P20F11" panelnum="20" fieldnum="11" listname="LinkToConfig" format="Panel Link" link="CONFIG.DAT"  editorder="11" >
+<link topanelnum="2" panelname="CONFIG.DAT" targetfield="4" targetindex="1" fieldlist="2" >      <fieldlist>
+
+     <field order=" 1" name="P20F  2" listname="One" number="2" />
+      </fieldlist>
+</link>
+
+</field>
+
+  <indexes>
+   <index indexnum="1">
+     <fields>
+     <field order=" 1" name="P20F1" listname="SUID" number="1" />
+     <field order=" 2" name="P20F10" listname="Year" number="10" />
+     <field order=" 3" name="P20F3" listname="Role" number="3" />
+     <field order=" 4" name="P20F4" listname="Group" number="4" />
+     </fields>
+   </index>
+   <index indexnum="2">
+     <fields>
+     <field order=" 1" name="P20F10" listname="Year" number="10" />
+     <field order=" 2" name="P20F6" listname="Association" number="6" />
+     <field order=" 3" name="P20F5" listname="RegoID" number="5" />
+     </fields>
+   </index>
+  </indexes>
+
+ </panel>
+
+</database>
