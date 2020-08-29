@@ -8,10 +8,17 @@ contains
 DP26Y.exe	Standard DP program files
 DP.SYS	
 STE-MGR.COM	This creates a .{L} file from an .STR
-STE-BASE.STR	This is a variation from the STE-BASE that is distributed with DP. Its purpose is to document a DP program from a .{L} file created by the STE-MGR.com  There are some panel changes to the original release, plus a report to export the definition to an XML file, (it outputs it as STE.XML)
-STE-Def.xsl	This is the stylesheet to transform the STE.xml to a readable form using a web browser such as Firefox. 
+
+STE-BASE.STR	This is a variation from the STE-BASE that is distributed with DP. Its purpose is to 
+document a DP program from a .{L} file created by the STE-MGR.com  There are some panel changes 
+to the original release, plus a report to export the definition to an XML file, (it outputs it as STE.XML)
+
+STE-Def.xsl	This is the stylesheet to transform the STE.xml to a readable form using a web browser 
+such as Firefox or Chrome. 
+
 STE-js	This is the Javascript to enable interactivity in the transformed XML
-wz_tooltip.js to add tooltips
+
+wz_tooltip.js to use tooltip when displaying all field  tooltips
 
 Use:
 ---
@@ -50,4 +57,8 @@ For Firefox change the config option privacy.file_unique_origin to false
 open the URL about:config accepting all the warnings
 search for privacy.file_unique_origin
 Double click it to change it from true to false
+
+Older version of Internet Explorer will also work
+
+There is a sample file EXAMPLE.XML to see the results of an old DP application I wrote.
 
