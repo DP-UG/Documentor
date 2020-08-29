@@ -1,5 +1,7 @@
 # Documentor
 Document DP databases
+Read notes at end of Readme for browser issues.
+
 Files
 -----
 Documentor.zip files
